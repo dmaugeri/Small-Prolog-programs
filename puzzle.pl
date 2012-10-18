@@ -45,5 +45,5 @@ all_diff([]).
 all_diff([H|T]):-not memberA(H,T), all_diff(T).
 
 /*check if member is within a list*/
-memberA(H,[H|T]).
+memberA(N,[H|T]).
 memberA(N,[H|T]):-memberA(N,T).
