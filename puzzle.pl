@@ -28,8 +28,8 @@ solve([S,A,Y,M,N,E,T,L]):-
 	S is (A+C5),
 	all_diff([S,A,Y,M,N,E,T,L]).	
 
-	all_diff([]).
-	all_diff([H|T]):-not memberA(H,T), all_diff(T).
+all_diff([]).
+all_diff([H|T]):-not memberA(H,T), all_diff(T).
 
-	memberA(H,[H|T]).
-	memberA(N,[H|T]):-memberA(N,T).
+memberA(H,[H|T]).
+memberA(N,[H|T]):-memberA(N,T).
