@@ -15,6 +15,16 @@ use the query solve(L) to get each value in the list */
 dig(0). dig(1). dig(2). dig(3). dig(4). dig(5). dig(6).
 dig(7). dig(8). dig(9).
 
+/*print_solution :-
+    solve([S,A,Y,M,N,E,T,L]),
+    write('    '), write(S), write(A), write(Y), nl,
+    write('  *  '), write(M), write(Y), nl,
+    write('  ----'), nl, 
+    write('  '), write(N), write(A), write(M), write(E), nl,
+    write('+ '), write(A), write(M), write(N), write(E), write(' '), nl,
+    write('------'),nl,
+    write(' '), write(S), write(T), write(Y), write(L), write(E).
+*/
 solve([S,A,Y,M,N,E,T,L]):-
 	/*checking domain*/
 	dig(S), dig(A), dig(Y), dig(M), dig(N), dig(E), dig(T), dig(L),
