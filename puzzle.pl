@@ -38,6 +38,11 @@ solve([S,A,Y,M,N,E,T,L]):-
 	M is (Y*A+C1) mod 10, C2 is (Y*A+C1) // 10,
 	A is (Y*S+C2) mod 10, N is (Y*S+C2) // 10,
 
+	/*multiplying the M digit*/
+	E is (M*Y) mod 10, C3 is (M*Y) // 10,
+	N is (M*A+C3) mod 10, C4 is (M*A + C3) // 10,
+	M is (M*S+C4) mod 10, A is (M*S+C4) // 10,
+
 	/*adding digits NAME and AMNE*/
 	L is (M+E) mod 10, C5 is (M+E) // 10,
 	Y is (A+N+C5) mod 10, C6 is (A+N+C5) // 10,
