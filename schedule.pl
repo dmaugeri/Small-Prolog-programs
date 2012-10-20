@@ -13,18 +13,27 @@ in Mathematics, the exam for mat120 should not be before mat101, nor be after ma
 */
 
 day(11). day(12). day(13). day(14).
-%dept(C). dept(AI). dept(P).
 
 %each variable represents when the exam for the course will be taken
 
 solve([CSC199,MAT120,MAT140,CSC148,CSC108,MAT101,PHL250]):-
-    day(CSC199), day(MAT120), day(MAT140), day(CSC148), day(CSC108), day(MAT101), day(PHL250),
-    PHL250 = 11, not MAT140 = 14,
+    %chose the values of the 3 math courses first because MAT had the most dependencies
+    %helps satisfy constraint c) and b) (not MAT140 = 14)
+    day(MAT120), day(MAT140),   day(MAT101),
+    not MAT140 = 14,MAT140 >= MAT120, MAT120 >= MAT101,
+    %chose the values of the 3 CSC courses second because it had the second most dependencies
+    %helps satisfy constraint c)
+    day(CSC199), day(CSC148),day(CSC108),
+    CSC199 >= CSC148, CSC148 >= CSC108,
+    %chose the value for the last PHL course because it had the least dependencies
+    %helps satisfy constraint b)
+    day(PHL250),
+    PHL250 = 11,
+    %make sure all values are different for each program I do it last because all values must have a values chosen first
+    %helps satisfy constraint a)
     all_diff([CSC199,MAT120,MAT140]),
     all_diff([CSC199,CSC108,CSC148,MAT140]),
-    all_diff([CSC199,MAT101,PHL250]),
-    CSC199 >= CSC148, CSC148 >= CSC108,
-    MAT140 >= MAT120, MAT120 >= MAT101.
+    all_diff([CSC199,MAT101,PHL250]).
 
 memberOf(N,[N|T]).
 memberOf(N,[H|T]):-
